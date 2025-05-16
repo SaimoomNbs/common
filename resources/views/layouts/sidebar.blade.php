@@ -1,20 +1,20 @@
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
     <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-        <a class="navbar-brand m-0" href="" target="_blank">
-            <img src="https://images.seeklogo.com/logo-png/40/2/discord-black-logo-png_seeklogo-404000.png" class="navbar-brand-img h-100" alt="main_logo">
+        <a class="navbar-brand m-0" href="{{route('dashboard')}}">
+            <img src="https://images.seeklogo.com/logo-png/40/2/discord-black-logo-png_seeklogo-404000.png" loading="lazy" width="18%" class="navbar-brand-img h-100" alt="main_logo">
             <span class="ms-1 font-weight-bold">Dev Desk</span>
         </a>
     </div>
     <hr class="horizontal dark mt-0">
-    <div class="collapse navbar-collapse  w-auto  max-height-vh-100 h-100" id="sidenav-collapse-main">
+    <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <!-- dashboard -->
             <li class="nav-item">
-                <a class="nav-link  active" href="">
+                <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{route('dashboard')}}">
                     <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <title>shop </title>
+                            <title>Dashboard </title>
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                 <g transform="translate(-1716.000000, -439.000000)" fill="#FFFFFF" fill-rule="nonzero">
                                     <g transform="translate(1716.000000, 291.000000)">
@@ -31,37 +31,51 @@
                 </a>
             </li>
             <!-- ticket -->
-             <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#dashboardsExamples" class="nav-link" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
+            <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#ticketMenu" 
+                class="nav-link {{ request()->routeIs('assigned.ticket','new.ticket','all.ticket','open.ticket','pending.ticket','close.ticket') ? 'active' : '' }}" aria-controls="ticketMenu" role="button" 
+                aria-expanded="{{ request()->routeIs('assigned.ticket','new.ticket','all.ticket','open.ticket','pending.ticket','close.ticket') ? 'true' : 'false' }}">
                     <div class="icon icon-sm shadow-sm border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
                         <i class="ni ni-compass-04" aria-hidden="true"></i>
                     </div>
                     <span class="nav-link-text ms-1">Ticket supervision</span>
                 </a>
-                <div class="collapse" id="dashboardsExamples">
+                <div class="collapse {{ request()->routeIs('assigned.ticket','new.ticket','all.ticket','open.ticket','pending.ticket','close.ticket') ? 'show' : '' }}" id="ticketMenu">
                     <ul class="nav ms-4 ps-3">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../../pages/dashboards/default.html">
+                        <li class="nav-item {{ request()->routeIs('assigned.ticket') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{route('assigned.ticket')}}">
+                                <span class="sidenav-mini-icon"> D </span>
+                                <span class="sidenav-normal"> My Tickets </span>
+                            </a>
+                        </li>
+                        <li class="nav-item {{ request()->routeIs('new.ticket') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{route('new.ticket')}}">
+                                <span class="sidenav-mini-icon"> D </span>
+                                <span class="sidenav-normal"> New Tickets </span>
+                            </a>
+                        </li>
+                        <li class="nav-item {{ request()->routeIs('all.ticket') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{route('all.ticket')}}">
                                 <span class="sidenav-mini-icon"> D </span>
                                 <span class="sidenav-normal"> All Tickets </span>
                             </a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link " href="../../pages/dashboards/automotive.html">
+                        <li class="nav-item {{ request()->routeIs('open.ticket') ? 'active' : '' }}">
+                            <a class="nav-link " href="{{route('open.ticket')}}">
                                 <span class="sidenav-mini-icon"> A </span>
-                                <span class="sidenav-normal"> Open Tickets </span>
+                                <span class="sidenav-normal"> Open / In Progress </span>
                             </a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link " href="../../pages/dashboards/smart-home.html">
-                                <span class="sidenav-mini-icon"> S </span>
-                                <span class="sidenav-normal"> Closed Tickets </span>
+                        <li class="nav-item {{ request()->routeIs('pending.ticket') ? 'active' : '' }}">
+                            <a class="nav-link " href="{{route('pending.ticket')}}">
+                                <span class="sidenav-mini-icon"> A </span>
+                                <span class="sidenav-normal"> On Hold / Pending </span>
                             </a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link " href="../../pages/dashboards/smart-home.html">
+                        <li class="nav-item {{ request()->routeIs('close.ticket') ? 'active' : '' }}">
+                            <a class="nav-link " href="{{route('close.ticket')}}">
                                 <span class="sidenav-mini-icon"> S </span>
-                                <span class="sidenav-normal"> Create Ticket </span>
+                                <span class="sidenav-normal"> Closed / Resolved </span>
                             </a>
                         </li>
                     </ul>
@@ -69,129 +83,351 @@
             </li>
             <!-- user management -->
             <li class="nav-item">
-                <a class="nav-link  " href="">
-                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <title>office</title>
-                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                                    <g transform="translate(1716.000000, 291.000000)">
-                                        <g id="office" transform="translate(153.000000, 2.000000)">
-                                            <path class="color-background opacity-6" d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z"></path>
-                                            <path class="color-background" d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z"></path>
-                                        </g>
-                                    </g>
-                                </g>
-                            </g>
-                        </svg>
+                <a data-bs-toggle="collapse" href="#userMenu" class="nav-link" aria-controls="userMenu" role="button" aria-expanded="false">
+                    <div class="icon icon-sm shadow-sm border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                        <i class="ni ni-compass-04" aria-hidden="true"></i>
                     </div>
                     <span class="nav-link-text ms-1">User Management</span>
                 </a>
+                <div class="collapse" id="userMenu">
+                    <ul class="nav ms-4 ps-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('dashboard')}}">
+                                <span class="sidenav-mini-icon"> D </span>
+                                <span class="sidenav-normal"> All Users </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('dashboard')}}">
+                                <span class="sidenav-mini-icon"> D </span>
+                                <span class="sidenav-normal"> Add New User </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('dashboard')}}">
+                                <span class="sidenav-mini-icon"> D </span>
+                                <span class="sidenav-normal"> Roles & Permissions </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link " href="{{route('dashboard')}}">
+                                <span class="sidenav-mini-icon"> S </span>
+                                <span class="sidenav-normal"> Banned Users </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
-            <!-- Notification -->
+            <!-- Category -->
             <li class="nav-item">
-                <a class="nav-link  " href="">
-                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <title>office</title>
-                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                                    <g transform="translate(1716.000000, 291.000000)">
-                                        <g id="office" transform="translate(153.000000, 2.000000)">
-                                            <path class="color-background opacity-6" d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z"></path>
-                                            <path class="color-background" d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z"></path>
-                                        </g>
-                                    </g>
-                                </g>
-                            </g>
-                        </svg>
+                <a data-bs-toggle="collapse" href="#categoryMenu" class="nav-link" aria-controls="categoryMenu" role="button" aria-expanded="false">
+                    <div class="icon icon-sm shadow-sm border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                        <i class="ni ni-compass-04" aria-hidden="true"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Notification</span>
+                    <span class="nav-link-text ms-1">Category & Tags</span>
                 </a>
+                <div class="collapse" id="categoryMenu">
+                    <ul class="nav ms-4 ps-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/categories/index.html">
+                                <span class="sidenav-mini-icon"> C </span>
+                                <span class="sidenav-normal"> All Categories </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/categories/create.html">
+                                <span class="sidenav-mini-icon"> C </span>
+                                <span class="sidenav-normal"> Add New Category </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/categories/assign.html">
+                                <span class="sidenav-mini-icon"> C </span>
+                                <span class="sidenav-normal"> Assign to Agents </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/categories/visibility.html">
+                                <span class="sidenav-mini-icon"> C </span>
+                                <span class="sidenav-normal"> Category Visibility </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/categories/archive.html">
+                                <span class="sidenav-mini-icon"> C </span>
+                                <span class="sidenav-normal"> Archived Categories </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/tags/index.html">
+                                <span class="sidenav-mini-icon"> T </span>
+                                <span class="sidenav-normal"> All Tags </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/tags/create.html">
+                                <span class="sidenav-mini-icon"> T </span>
+                                <span class="sidenav-normal"> Create Tag </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/tags/assign.html">
+                                <span class="sidenav-mini-icon"> T </span>
+                                <span class="sidenav-normal"> Assign to Tickets </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/tags/settings.html">
+                                <span class="sidenav-mini-icon"> T </span>
+                                <span class="sidenav-normal"> Tag Settings </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/tags/archive.html">
+                                <span class="sidenav-mini-icon"> T </span>
+                                <span class="sidenav-normal"> Archived Tags </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
             <!-- Analytics -->
             <li class="nav-item">
-                <a class="nav-link  " href="">
-                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <title>office</title>
-                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                                    <g transform="translate(1716.000000, 291.000000)">
-                                        <g id="office" transform="translate(153.000000, 2.000000)">
-                                            <path class="color-background opacity-6" d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z"></path>
-                                            <path class="color-background" d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z"></path>
-                                        </g>
-                                    </g>
-                                </g>
-                            </g>
-                        </svg>
+                <a data-bs-toggle="collapse" href="#analyticsMenu" class="nav-link" aria-controls="analyticsMenu" role="button" aria-expanded="false">
+                    <div class="icon icon-sm shadow-sm border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                        <i class="ni ni-compass-04" aria-hidden="true"></i>
                     </div>
                     <span class="nav-link-text ms-1">Analytics</span>
                 </a>
+                <div class="collapse" id="analyticsMenu">
+                    <ul class="nav ms-4 ps-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('dashboard')}}">
+                                <span class="sidenav-mini-icon"> D </span>
+                                <span class="sidenav-normal"> Ticket Reports </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('dashboard')}}">
+                                <span class="sidenav-mini-icon"> D </span>
+                                <span class="sidenav-normal"> Agent Performance </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('dashboard')}}">
+                                <span class="sidenav-mini-icon"> D </span>
+                                <span class="sidenav-normal"> Customer Insights </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('dashboard')}}">
+                                <span class="sidenav-mini-icon"> D </span>
+                                <span class="sidenav-normal"> Response Time Reports </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link " href="{{route('dashboard')}}">
+                                <span class="sidenav-mini-icon"> S </span>
+                                <span class="sidenav-normal"> SLA Reports </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
             <!-- Appearance -->
             <li class="nav-item">
-                <a class="nav-link  " href="">
-                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <title>office</title>
-                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                                    <g transform="translate(1716.000000, 291.000000)">
-                                        <g id="office" transform="translate(153.000000, 2.000000)">
-                                            <path class="color-background opacity-6" d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z"></path>
-                                            <path class="color-background" d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z"></path>
-                                        </g>
-                                    </g>
-                                </g>
-                            </g>
-                        </svg>
+                <a data-bs-toggle="collapse" href="#appearanceMenu" class="nav-link" aria-controls="appearanceMenu" role="button" aria-expanded="false">
+                    <div class="icon icon-sm shadow-sm border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                        <i class="ni ni-compass-04" aria-hidden="true"></i>
                     </div>
                     <span class="nav-link-text ms-1">Appearance</span>
                 </a>
+                <div class="collapse" id="appearanceMenu">
+                    <ul class="nav ms-4 ps-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/appearance/theme-settings.html">
+                                <span class="sidenav-mini-icon"> T </span>
+                                <span class="sidenav-normal"> Theme Settings </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/appearance/logo-branding.html">
+                                <span class="sidenav-mini-icon"> L </span>
+                                <span class="sidenav-normal"> Logo & Branding </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/appearance/navigation-settings.html">
+                                <span class="sidenav-mini-icon"> N </span>
+                                <span class="sidenav-normal"> Navigation Settings </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/appearance/typography.html">
+                                <span class="sidenav-mini-icon"> T </span>
+                                <span class="sidenav-normal"> Typography </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/appearance/custom-css.html">
+                                <span class="sidenav-mini-icon"> C </span>
+                                <span class="sidenav-normal"> Custom CSS/JS </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/appearance/footer-meta.html">
+                                <span class="sidenav-mini-icon"> F </span>
+                                <span class="sidenav-normal"> Footer & Meta Settings </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
             <!-- App Setting -->
             <li class="nav-item">
-                <a class="nav-link  " href="">
-                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <title>office</title>
-                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                                    <g transform="translate(1716.000000, 291.000000)">
-                                        <g id="office" transform="translate(153.000000, 2.000000)">
-                                            <path class="color-background opacity-6" d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z"></path>
-                                            <path class="color-background" d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z"></path>
-                                        </g>
-                                    </g>
-                                </g>
-                            </g>
-                        </svg>
+                <a data-bs-toggle="collapse" href="#appMenu" class="nav-link" aria-controls="appMenu" role="button" aria-expanded="false">
+                    <div class="icon icon-sm shadow-sm border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                        <i class="ni ni-compass-04" aria-hidden="true"></i>
                     </div>
                     <span class="nav-link-text ms-1">App Setting</span>
                 </a>
+                <div class="collapse" id="appMenu">
+
+                    <ul class="nav ms-4 ps-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/settings/general.html">
+                                <span class="sidenav-mini-icon"> G </span>
+                                <span class="sidenav-normal"> General Settings </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/settings/email.html">
+                                <span class="sidenav-mini-icon"> E </span>
+                                <span class="sidenav-normal"> Email Settings </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/settings/notification.html">
+                                <span class="sidenav-mini-icon"> N </span>
+                                <span class="sidenav-normal"> Notification Settings </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/settings/timezone.html">
+                                <span class="sidenav-mini-icon"> T </span>
+                                <span class="sidenav-normal"> Timezone & Locale </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/settings/ticket.html">
+                                <span class="sidenav-mini-icon"> T </span>
+                                <span class="sidenav-normal"> Ticket Settings </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/settings/user.html">
+                                <span class="sidenav-mini-icon"> U </span>
+                                <span class="sidenav-normal"> User Preferences </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/settings/security.html">
+                                <span class="sidenav-mini-icon"> S </span>
+                                <span class="sidenav-normal"> Security Settings </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/settings/integrations.html">
+                                <span class="sidenav-mini-icon"> I </span>
+                                <span class="sidenav-normal"> Integrations </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/settings/api-access.html">
+                                <span class="sidenav-mini-icon"> A </span>
+                                <span class="sidenav-normal"> API Access </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/settings/backup-restore.html">
+                                <span class="sidenav-mini-icon"> B </span>
+                                <span class="sidenav-normal"> Backup & Restore </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/settings/logs.html">
+                                <span class="sidenav-mini-icon"> L </span>
+                                <span class="sidenav-normal"> System Logs </span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
             </li>
             <!-- Language -->
             <li class="nav-item">
-                <a class="nav-link  " href="">
-                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <title>office</title>
-                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                                    <g transform="translate(1716.000000, 291.000000)">
-                                        <g id="office" transform="translate(153.000000, 2.000000)">
-                                            <path class="color-background opacity-6" d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z"></path>
-                                            <path class="color-background" d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z"></path>
-                                        </g>
-                                    </g>
-                                </g>
-                            </g>
-                        </svg>
+                <a data-bs-toggle="collapse" href="#languageMenu" class="nav-link" aria-controls="languageMenu" role="button" aria-expanded="false">
+                    <div class="icon icon-sm shadow-sm border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                        <i class="ni ni-compass-04" aria-hidden="true"></i>
                     </div>
                     <span class="nav-link-text ms-1">Language</span>
                 </a>
+                <div class="collapse" id="languageMenu">
+                    <ul class="nav ms-4 ps-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/language/default-language.html">
+                                <span class="sidenav-mini-icon"> D </span>
+                                <span class="sidenav-normal"> Default Language </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/language/manage-languages.html">
+                                <span class="sidenav-mini-icon"> M </span>
+                                <span class="sidenav-normal"> Manage Languages </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/language/translation-editor.html">
+                                <span class="sidenav-mini-icon"> T </span>
+                                <span class="sidenav-normal"> Translation Editor </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/language/auto-translate.html">
+                                <span class="sidenav-mini-icon"> A </span>
+                                <span class="sidenav-normal"> Auto Translate (via API) </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/language/right-to-left.html">
+                                <span class="sidenav-mini-icon"> R </span>
+                                <span class="sidenav-normal"> RTL Support </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../pages/language/multi-language.html">
+                                <span class="sidenav-mini-icon"> M </span>
+                                <span class="sidenav-normal"> Enable Multi-language </span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
             </li>
             <!-- Contact Support -->
             <li class="nav-item">
