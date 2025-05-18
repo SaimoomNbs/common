@@ -1,6 +1,6 @@
 @extends('layouts.master')
 <!-- custom title -->
-@section('title')Pending Ticket |@endsection
+@section('title')Open Ticket |@endsection
 
 <!-- custom style -->
 @section('style')@endsection
@@ -13,14 +13,14 @@
             <div class="card-header py-3">
                 <div class="d-lg-flex">
                     <div>
-                        <h5 class="mb-0"><i class="ni ni-folder-17" aria-hidden="true"></i> Pending Ticket</h5>
+                        <h5 class="mb-0"><i class="ni ni-folder-17" aria-hidden="true"></i> Open Ticket</h5>
                         <!-- <p class="text-sm mb-0">
                             A lightweight, extendable, dependency-free javascript HTML table plugin.
                         </p> -->
                     </div>
                     <div class="ms-auto my-auto mt-lg-0 mt-4">
                         <div class="ms-auto my-auto">
-                            <a href="" class="btn btn-primary btn-sm mb-0" target="_blank">+&nbsp; New Ticket</a>
+                            <a href="{{route('new.ticket')}}" class="btn btn-primary btn-sm mb-0">+&nbsp; New Ticket</a>
                             <!-- <button class="btn btn-outline-primary btn-sm export mb-0 mt-sm-0 mt-1" data-type="csv" type="button" name="button">Export</button> -->
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 <!-- custom title -->
-@section('title')Resolved Ticket |@endsection
+@section('title')User Management |@endsection
 
 <!-- custom style -->
 @section('style')@endsection
@@ -13,14 +13,14 @@
             <div class="card-header py-3">
                 <div class="d-lg-flex">
                     <div>
-                        <h5 class="mb-0"><i class="ni ni-folder-17" aria-hidden="true"></i> Resolved Ticket</h5>
+                        <h5 class="mb-0"><i class="ni ni-single-02" aria-hidden="true"></i> User Management</h5>
                         <!-- <p class="text-sm mb-0">
                             A lightweight, extendable, dependency-free javascript HTML table plugin.
                         </p> -->
                     </div>
                     <div class="ms-auto my-auto mt-lg-0 mt-4">
                         <div class="ms-auto my-auto">
-                            <a href="" class="btn btn-primary btn-sm mb-0" target="_blank">+&nbsp; New Ticket</a>
+                            <a href="" class="btn btn-primary btn-sm mb-0" target="_blank">+&nbsp; New User</a>
                             <!-- <button class="btn btn-outline-primary btn-sm export mb-0 mt-sm-0 mt-1" data-type="csv" type="button" name="button">Export</button> -->
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                             <tr>
                                 <th width="20%" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Contact</th>
                                 <th width="60%" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Conversation</th>
-                                <th width="10%" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#Ticket</th>
+                                <th width="10%" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#User</th>
                                 <th width="10%" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Added since</th>
                             </tr>
                         </thead>
@@ -78,7 +78,7 @@
                                 </td>
                                 <td>
                                     <div class="d-flex flex-column justify-content-center">
-                                        <h6 class="mb-2 text-sm">Support ticket regarding the initial platform installation has been reviewed</h6>
+                                        <h6 class="mb-2 text-sm">Support User regarding the initial platform installation has been reviewed</h6>
                                         <p class="text-xs font-weight-semibold text-secondary mb-0">Assigned to : <span class="text-success">Abir Faisal</span>
                                             <span class="badge bg-gradient-secondary ms-1">Billing</span>
                                             <span class="badge bg-gradient-secondary ms-1">Sales</span>

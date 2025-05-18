@@ -64,7 +64,7 @@
                         <div class="dropdown">
                             <button class="btn btn-white dropdown-toggle shadow-sm" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="true">
                                 <i class="ni ni-single-02 me-sm-1 text-light"></i>
-                                <span class="d-sm-inline d-none">{{ Auth::user()->name }}</span>
+                                <span class="d-sm-inline d-none text-capitalize">{{ Auth::user()->name }}</span>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 43px);" data-popper-placement="bottom-start">
                                 <li><a class="dropdown-item" href="{{route('profile.edit')}}">Update Profile</a></li>

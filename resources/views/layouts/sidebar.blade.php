@@ -83,34 +83,36 @@
             </li>
             <!-- user management -->
             <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#userMenu" class="nav-link" aria-controls="userMenu" role="button" aria-expanded="false">
+                <a data-bs-toggle="collapse" href="#userMenu" 
+                class="nav-link {{ request()->routeIs('user.management','new.user','user.role.permission','banned.user') ? 'active' : '' }}" aria-controls="userMenu" role="button" 
+                aria-expanded="{{ request()->routeIs('user.management','new.user','user.role.permission','banned.user') ? 'true' : 'false' }}">
                     <div class="icon icon-sm shadow-sm border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
                         <i class="ni ni-compass-04" aria-hidden="true"></i>
                     </div>
                     <span class="nav-link-text ms-1">User Management</span>
                 </a>
-                <div class="collapse" id="userMenu">
+                <div class="collapse {{ request()->routeIs('user.management','new.user','user.role.permission','banned.user') ? 'show' : '' }}" id="userMenu">
                     <ul class="nav ms-4 ps-3">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('dashboard')}}">
+                        <li class="nav-item {{ request()->routeIs('user.management') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{route('user.management')}}">
                                 <span class="sidenav-mini-icon"> D </span>
                                 <span class="sidenav-normal"> All Users </span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('dashboard')}}">
+                        <li class="nav-item {{ request()->routeIs('new.user') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{route('new.user')}}">
                                 <span class="sidenav-mini-icon"> D </span>
                                 <span class="sidenav-normal"> Add New User </span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('dashboard')}}">
+                        <li class="nav-item {{ request()->routeIs('user.role.permission') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{route('user.role.permission')}}">
                                 <span class="sidenav-mini-icon"> D </span>
                                 <span class="sidenav-normal"> Roles & Permissions </span>
                             </a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link " href="{{route('dashboard')}}">
+                        <li class="nav-item {{ request()->routeIs('banned.user') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{route('banned.user')}}">
                                 <span class="sidenav-mini-icon"> S </span>
                                 <span class="sidenav-normal"> Banned Users </span>
                             </a>

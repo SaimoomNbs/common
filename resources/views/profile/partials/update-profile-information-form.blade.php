@@ -1,4 +1,4 @@
-<section>
+<!-- <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             {{ __('Profile Information') }}
@@ -59,6 +59,32 @@
                     class="text-sm text-gray-600 dark:text-gray-400"
                 >{{ __('Saved.') }}</p>
             @endif
+        </div>
+    </form>
+</section> -->
+
+<section>
+    <form method="post" action="{{ route('profile.update') }}" class="space-y-6">
+        @csrf
+        @method('patch')
+        <div class="card" id="password">
+            <div class="card-header pb-0">
+                <h5>Profile Information</h5>
+                <p class="text-sm">
+                    Update your account's profile information and email address.
+                </p>
+            </div>
+            <div class="card-body pt-0">
+                <label class="form-label">Name</label>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="name" value="{{old('name', $user->name)}}" placeholder="user name" onfocus="focused(this)" onfocusout="defocused(this)">
+                </div>
+                <label class="form-label">Email</label>
+                <div class="form-group">
+                    <input class="form-control" type="email" name="email" value="{{old('email', $user->email)}}" placeholder="test@email.com" onfocus="focused(this)" onfocusout="defocused(this)">
+                </div>
+                <button type="submit" class="btn bg-gradient-dark float-end mt-2 mb-0">Save</button>
+            </div>
         </div>
     </form>
 </section>
