@@ -149,7 +149,7 @@
         </div>
     </div>
     <main class="main-content mt-0">
-        {{ $slot }}
+        @yield('content')
         <footer class="footer pb-5">
             <div class="container">
                 <div class="row">
@@ -212,6 +212,7 @@
             }
         });
     </script>
+
     <!--   Core JS Files   -->
     <!-- <script src="{{asset('assets/js/core/popper.min.js')}}"></script>
     <script src="{{asset('assets/js/core/bootstrap.min.js')}}"></script> -->
