@@ -16975,6 +16975,7 @@ textarea.form-control, textarea.form-control-lg, textarea.form-control-sm {
         transition: visibility .25s, opacity .25s, transform .25s
     }
     .dropdown .dropdown-toggle:after, .dropup .dropdown-toggle:after {
+        font-family: 'Font Awesome 5 Free';
         content: "\f107"
     }
     .dropstart .dropdown-toggle:before {
@@ -25848,6 +25849,7 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
     display: none
 }
 .choices[data-type*=select-one]:after {
+    font-family: 'Font Awesome 5 Free';
     content: "\f107";
     font: normal normal normal 14px/1 FontAwesome;
     position: absolute;

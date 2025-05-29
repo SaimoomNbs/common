@@ -10,10 +10,10 @@
     <link rel="icon" type="image/png" href="https://images.seeklogo.com/logo-png/40/2/discord-black-logo-png_seeklogo-404000.png">
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,800,900" rel="stylesheet" />
     <!-- Nucleo Icons -->
     <link href="{{asset('assets/css/nucleo-icons.css')}}" rel="stylesheet" />
     <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous" defer></script>
     <link href="{{asset('assets/css/nucleo-svg.css')}}" rel="stylesheet" />
     <!-- CSS Files -->
     <!-- <link id="pagestyle" href="{{asset('assets/css/soft-ui-dashboard.css')}}" rel="stylesheet" /> -->
@@ -173,7 +173,7 @@
                             Pricing
                         </a>
                     </div>
-                    <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
+                    <div class="col-lg-8 mx-auto text-center mb-lg-0 mb-4 mt-lg-0 mt-2">
                         <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
                             <span class="text-lg fab fa-dribbble" aria-hidden="true"></span>
                         </a>
@@ -192,11 +192,14 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-8 mx-auto text-center mt-1">
+                    <div class="col-8 mx-auto text-center mt-1 justify-content-center">
                         <p class="mb-0 text-secondary">
-                            Copyright © <script>
+                            © <script>
                                 document.write(new Date().getFullYear())
-                            </script>2025 Soft by Creative Tim.
+                            </script>
+                            made with <i class="fa fa-heart" aria-hidden="true"></i> by
+                            <a href="javascript:void(0);" class="font-weight-bold" target="_blank">Saimoom Shovon</a>
+                            for a better web.
                         </p>
                     </div>
                 </div>
@@ -214,8 +217,8 @@
     </script>
 
     <!--   Core JS Files   -->
-    <!-- <script src="{{asset('assets/js/core/popper.min.js')}}"></script>
-    <script src="{{asset('assets/js/core/bootstrap.min.js')}}"></script> -->
+    <script src="{{asset('assets/js/core/popper.min.js')}}"></script>
+    <script src="{{asset('assets/js/core/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
     <script src="{{asset('assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->

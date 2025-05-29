@@ -15346,6 +15346,7 @@ fieldset:disabled .btn {
     .dropend .dropdown-toggle:after,
     .dropstart .dropdown-toggle:after,
     .dropup .dropdown-toggle:after {
+        font-family: 'Font Awesome 5 Free';
         content: "\f107";
         font: normal normal normal 14px/1 FontAwesome;
         border: none;
@@ -17301,7 +17302,7 @@ hr.horizontal.gray-light {
     font-variant: normal;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
-    font-family: Font Awesome\5 Free;
+    font-family: 'Font Awesome 5 Free';
     font-weight: 700;
     content: "\f107";
     margin-left: auto;
@@ -17559,7 +17560,8 @@ hr.horizontal.gray-light {
         .nav
         .nav-item
         .nav-link[data-bs-toggle="collapse"]:after {
-        content: "\f107";
+            font-family: 'Font Awesome 5 Free';
+            content: "\f107";
     }
     .g-sidenav-hidden .navbar-vertical .card.card-background .icon-shape {
         margin-bottom: 0 !important;
@@ -17600,6 +17602,7 @@ hr.horizontal.gray-light {
         .navbar-vertical:hover
         .nav-item
         .nav-link[data-bs-toggle="collapse"]:after {
+        font-family: 'Font Awesome 5 Free';
         content: "\f107";
     }
     .g-sidenav-hidden .navbar-vertical:hover .nav-item .collapse .nav {

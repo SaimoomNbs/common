@@ -111,9 +111,7 @@
                             <tr>
                                 <td class="w-30">
                                     <div class="d-flex px-2 py-1 align-items-center">
-                                        <div>
-                                            <img src="../../assets/img/icons/flags/US.png" alt="Country flag">
-                                        </div>
+                                        
                                         <div class="ms-2">
                                             <h6 class="text-sm mb-0">United States</h6>
                                         </div>
@@ -138,9 +136,7 @@
                             <tr>
                                 <td class="w-30">
                                     <div class="d-flex px-2 py-1 align-items-center">
-                                        <div>
-                                            <img src="../../assets/img/icons/flags/DE.png" alt="Country flag">
-                                        </div>
+                                        
                                         <div class="ms-2">
                                             <h6 class="text-sm mb-0">Germany</h6>
                                         </div>
@@ -165,9 +161,7 @@
                             <tr>
                                 <td class="w-30">
                                     <div class="d-flex px-2 py-1 align-items-center">
-                                        <div>
-                                            <img src="../../assets/img/icons/flags/GB.png" alt="Country flag">
-                                        </div>
+                                        
                                         <div class="ms-2">
                                             <h6 class="text-sm mb-0">Great Britain</h6>
                                         </div>
@@ -192,9 +186,7 @@
                             <tr>
                                 <td class="w-30">
                                     <div class="d-flex px-2 py-1 align-items-center">
-                                        <div>
-                                            <img src="../../assets/img/icons/flags/BR.png" alt="Country flag">
-                                        </div>
+                                        
                                         <div class="ms-2">
                                             <h6 class="text-sm mb-0">Brasil</h6>
                                         </div>
