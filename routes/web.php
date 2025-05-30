@@ -28,6 +28,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/new-user', function () {return view('pages.user.new-user');})->name('new.user');
     Route::get('/user-role-permission', function () {return view('pages.user.user-role-permission');})->name('user.role.permission');
     Route::get('/banned-user', function () {return view('pages.user.banned-user');})->name('banned.user');
+    
+    // pages
+    Route::get('/pages', function () {return view('pages.pages.pages');})->name('pages');
+    Route::get('/create-page', function () {return view('pages.pages.create-page');})->name('create.page');
+    // category & tag management
+    Route::get('/categories', function () {return view('pages.category-tag.categories');})->name('categories');
+    Route::get('/create-category', function () {return view('pages.category-tag.create-category');})->name('create.category');
+    Route::get('/archive-categories', function () {return view('pages.category-tag.archive-categories');})->name('archive.categories');
+    Route::get('/tags', function () {return view('pages.category-tag.tags');})->name('tags');
+    Route::get('/create-tag', function () {return view('pages.category-tag.create-tag');})->name('create.tag');
+    Route::get('/archive-tags', function () {return view('pages.category-tag.archive-tags');})->name('archive.tags');
 });
 
 
