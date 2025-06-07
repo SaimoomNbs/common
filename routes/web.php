@@ -39,6 +39,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/tags', function () {return view('pages.category-tag.tags');})->name('tags');
     Route::get('/create-tag', function () {return view('pages.category-tag.create-tag');})->name('create.tag');
     Route::get('/archive-tags', function () {return view('pages.category-tag.archive-tags');})->name('archive.tags');
+    // language
+    Route::get('/languages', function () {return view('pages.language.languages');})->name('languages');
+    Route::get('/add-language', function () {return view('pages.language.add-language');})->name('add.language');
+    Route::get('/translator', function () {return view('pages.language.translator');})->name('language.translator');
 });
 
 

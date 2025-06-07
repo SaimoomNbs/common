@@ -42,28 +42,28 @@
         </div>
     </div>
 </section>
-<div class="position-fixed bottom-1 start-1 z-index-2">
+<div class="position-fixed top-1 end-0 z-index-9999">
     <div class="toast fade p-2 bg-dark" role="alert" aria-live="assertive" id="successToast" aria-atomic="true">
-        <div class="toast-header border-0 bg-dark text-white">
-            <span class="me-auto font-weight-bold">Dev Desk says</span>
+        <div class="toast-header border-0 bg-dark text-white p-1">
+            <span class="me-auto font-weight-bold">{{ config('app.name') }} says</span>
             <small class="text-body">few seconds ago</small>
             <i class="fas fa-times text-md ms-3 cursor-pointer" data-bs-dismiss="toast" aria-label="Close" aria-hidden="true"></i>
         </div>
         <hr class="horizontal m-0 bg-white">
-        <div class="toast-body text-success">
+        <div class="toast-body text-success p-1 fw-bold">
             Hello, world! This is a notification message.
         </div>
     </div>
 </div>
-<div class="position-fixed bottom-1 start-1 z-index-2">
+<div class="position-fixed top-1 end-0 z-index-9999">
     <div class="toast fade p-2 bg-dark" role="alert" aria-live="assertive" id="failedToast" aria-atomic="true">
-        <div class="toast-header border-0 bg-dark text-white">
-            <span class="me-auto font-weight-bold">Dev Desk says</span>
+        <div class="toast-header border-0 bg-dark text-white p-1">
+            <span class="me-auto font-weight-bold">{{ config('app.name') }} says</span>
             <small class="text-body">few seconds ago</small>
             <i class="fas fa-times text-md ms-3 cursor-pointer" data-bs-dismiss="toast" aria-label="Close" aria-hidden="true"></i>
         </div>
         <hr class="horizontal m-0 bg-white">
-        <div class="toast-body text-danger">
+        <div class="toast-body text-danger p-1 fw-bold">
             Hello, world! This is a notification message.
         </div>
     </div>

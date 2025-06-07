@@ -118,7 +118,7 @@
                 <!-- <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
                     <div class="container-fluid">
                         <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="../../../pages/dashboards/default.html">
-                            Dev Desk
+                            {{ config('app.name') }}
                         </a>
                         <img src="https://images.seeklogo.com/logo-png/40/2/discord-black-logo-png_seeklogo-404000.png" width="10%"> 
                         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -198,7 +198,7 @@
                                 document.write(new Date().getFullYear())
                             </script>
                             made with <i class="fa fa-heart" aria-hidden="true"></i> by
-                            <a href="javascript:void(0);" class="font-weight-bold" target="_blank">Saimoom Shovon</a>
+                            <a href="https://devspectrum.org/" class="font-weight-bold" target="_blank">Dev Spectrum</a>
                             for a better web.
                         </p>
                     </div>
